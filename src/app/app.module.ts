@@ -14,6 +14,7 @@ import { DaysListComponent } from './days-list/days-list.component';
 import { DayComponent } from './day/day.component';
 import {ScheduleServiceClient} from './services/schedule.service';
 import {DayServiceClient} from './services/day.service';
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {DayServiceClient} from './services/day.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [
     ScheduleServiceClient,

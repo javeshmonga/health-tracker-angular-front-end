@@ -10,6 +10,7 @@ export class ScheduleComponent implements OnInit {
 
   constructor(private service: DayServiceClient) { }
 
+  scheduleId;
   days;
   ngOnInit() {
     this.service.findAllDaysForSchedule(12)
