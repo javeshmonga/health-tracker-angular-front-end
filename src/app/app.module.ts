@@ -15,6 +15,7 @@ import { DayComponent } from './day/day.component';
 import {ScheduleServiceClient} from './services/schedule.service';
 import {DayServiceClient} from './services/day.service';
 import {routing} from './app.routing';
+import {UserServiceClient} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {routing} from './app.routing';
   ],
   providers: [
     ScheduleServiceClient,
-    DayServiceClient
+    DayServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })
