@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DayServiceClient} from '../services/day.service';
 
 @Component({
   selector: 'app-schedule',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: DayServiceClient) { }
 
+  days;
   ngOnInit() {
+    this.service.findAllDaysForSchedule(12)
+      .then(days => this.days = days);
   }
 
 }

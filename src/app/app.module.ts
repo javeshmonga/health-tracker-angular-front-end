@@ -13,6 +13,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { DaysListComponent } from './days-list/days-list.component';
 import { DayComponent } from './day/day.component';
 import {ScheduleServiceClient} from './services/schedule.service';
+import {DayServiceClient} from './services/day.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ScheduleServiceClient} from './services/schedule.service';
     FormsModule
   ],
   providers: [
-    ScheduleServiceClient
+    ScheduleServiceClient,
+    DayServiceClient
   ],
   bootstrap: [AppComponent]
 })

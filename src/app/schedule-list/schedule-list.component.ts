@@ -8,12 +8,12 @@ import {ScheduleServiceClient} from '../services/schedule.service';
 })
 export class ScheduleListComponent implements OnInit {
 
-  constructor(private scheduleServiceClient: ScheduleServiceClient) { }
+  constructor(private service: ScheduleServiceClient) { }
 
   schedules;
 
   ngOnInit() {
-    this.scheduleServiceClient.findAllSchedules()
+    this.service.findAllSchedules()
       .then(schedules => this.schedules = schedules);
   }
 
