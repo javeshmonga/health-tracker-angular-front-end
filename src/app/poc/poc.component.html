@@ -1,0 +1,27 @@
+<h1>Health Tracker POC</h1>
+
+<input [(ngModel)]="queryTerm"
+       class="form-control"
+       type='text'
+       placeholder="enter search term">
+<button title="Search"
+        class="btn btn-primary"
+        (click)="selectSearch()">Search</button>
+
+<h3>Select the appropriate item from the list below</h3>
+
+<div class="row">
+  <div class="col-6">
+    <ul>
+      <li (click)="displayDetails(food)"
+          class="list-group-item webdev btn btn-link"
+          *ngFor="let food of Foods">
+        {{food.food_name}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <h4>Description</h4>
+    {{food.food_description}}}
+  </div>
+</div>
