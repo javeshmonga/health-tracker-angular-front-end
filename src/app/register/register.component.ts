@@ -11,27 +11,33 @@ import {ScheduleServiceClient} from '../services/schedule.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private router: Router,
-              private service: UserServiceClient,
-              private scheduleService: ScheduleServiceClient) { }
+              private service: UserServiceClient) { }
 
-  username;
-  password;
+  user = {
+    username: '',
+    password: '',
+    userType: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    schedule: {}
+  };
   password2;
 
   ngOnInit() {
   }
 
-  register(username, password, password2) {
-    if (password !== password2) {
+  register(user, password2) {
+    if (user.password !== password2) {
       alert('passwords does not match');
     } else {
       this.service
-        .register(username, password)
+        .register(user)
         .then(response => {
           if (response.username == null) {
             alert('username already exists');
           } else {
-            this.router.navigate(['profile']);
+            this.router.navigate(['home']);
           }
         });
     }

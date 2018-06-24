@@ -1,13 +1,20 @@
 <div class="container-fluid">
   <h1>Profile</h1>
 
-  <input placeholder="username"
+  <label>Username: </label>
+{{user.username}}
+  <input [(ngModel)]="user.firstName"
+         placeholder="first name"
          class="form-control"/>
-  <input placeholder="first name"
+  <input [(ngModel)]="user.lastName"
+         placeholder="lastName"
          class="form-control"/>
-  <input placeholder="lastName"
-         class="form-control"/>
-  <input placeholder="email"
+  <input [(ngModel)]="user.password"
+         placeholder="password"
+         class="form-control"
+         type="password"/>
+  <input [(ngModel)]="user.email"
+         placeholder="email"
          class="form-control"/>
   <button class="btn btn-primary btn-block">
     Update

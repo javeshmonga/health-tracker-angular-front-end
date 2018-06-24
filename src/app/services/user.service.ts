@@ -8,13 +8,13 @@ export class UserServiceClient {
   }
 
   login(username, password) {
-    const credentials = {
+    const userCredentials = {
       username: username,
       password: password
     };
     return fetch(this.URL + '/api/login', {
+      body: JSON.stringify(userCredentials),
       method: 'post',
-      body: JSON.stringify(credentials),
       headers: {
         'content-type': 'application/json'
       }
@@ -32,11 +32,7 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
-  register(username, password) {
-    const user = {
-      username: username,
-      password: password
-    };
+  register(user) {
     return fetch(this.URL + '/api/register', {
       headers: {
         'content-type': 'application/json'

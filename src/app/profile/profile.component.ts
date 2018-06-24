@@ -10,10 +10,21 @@ import {Router} from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   constructor(private service: UserServiceClient,
-              private router: Router) { }
-
+              private router: Router) {}
+  user = {
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    schedule: {}
+  };
 
   ngOnInit() {
+    this.service
+      .profile()
+      .then(user =>
+        this.user = user);
   }
 
   logout() {
