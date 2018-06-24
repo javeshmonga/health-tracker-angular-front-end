@@ -3,7 +3,7 @@ export class UserServiceClient {
   URL = 'http://localhost:8080';
 
   finAllUsers() {
-    return fetch(URL + '/api/user')
+    return fetch(this.URL + '/api/user')
       .then(response => response.json());
   }
 
@@ -12,23 +12,23 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch(URL + '/api/login', {
+    return fetch(this.URL + '/api/login', {
       method: 'post',
       body: JSON.stringify(credentials),
       headers: {
         'content-type': 'application/json'
       }
-    });
+    }).then(response => response.json());
   }
 
   logout() {
-    return fetch(URL + '/api/logout', {
+    return fetch(this.URL + '/api/logout', {
       method: 'delete'
     });
   }
 
   profile() {
-    return fetch(URL + '/api/profile')
+    return fetch(this.URL + '/api/profile')
       .then(response => response.json());
   }
 
@@ -37,12 +37,12 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch(URL + '/api/user', {
-      body: JSON.stringify(user),
-      method: 'post',
+    return fetch(this.URL + '/api/register', {
       headers: {
         'content-type': 'application/json'
-      }
-    });
+      },
+      body: JSON.stringify(user),
+      method: 'post'
+    }).then(respose => respose.json());
   }
 }
