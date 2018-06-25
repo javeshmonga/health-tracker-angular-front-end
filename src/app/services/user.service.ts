@@ -41,4 +41,14 @@ export class UserServiceClient {
       method: 'post'
     }).then(respose => respose.json());
   }
+
+  updateUser(user) {
+    return fetch(this.URL + '/api/user/update', {
+      body: JSON.stringify(user),
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 }

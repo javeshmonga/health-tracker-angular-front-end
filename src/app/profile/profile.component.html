@@ -16,7 +16,7 @@
   <input [(ngModel)]="user.email"
          placeholder="email"
          class="form-control"/>
-  <button class="btn btn-primary btn-block">
+  <button (click)="update()" class="btn btn-primary btn-block">
     Update
   </button>
   <button (click)="logout()" class="btn btn-danger">Logout</button>
