@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DayServiceClient} from '../services/day.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserServiceClient} from '../services/user.service';
+import {ScheduleServiceClient} from '../services/schedule.service';
 
 @Component({
   selector: 'app-schedule',
@@ -10,7 +11,8 @@ import {UserServiceClient} from '../services/user.service';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor(private scheduleService: DayServiceClient,
+  constructor(private scheduleService: ScheduleServiceClient,
+              private dayService: DayServiceClient,
               private service: UserServiceClient,
               private router: Router,
               private route: ActivatedRoute) {
@@ -20,6 +22,8 @@ export class ScheduleComponent implements OnInit {
 
   scheduleId;
   days;
+
+  schedule;
 
   user = {
     username: '',
@@ -37,7 +41,7 @@ export class ScheduleComponent implements OnInit {
 
   loadDays() {
     console.log(this.scheduleId);
-    this.scheduleService.findAllDaysForSchedule(this.scheduleId)
+    this.dayService.findAllDaysForSchedule(this.scheduleId)
       .then(days => this.days = days);
   }
 
@@ -46,11 +50,17 @@ export class ScheduleComponent implements OnInit {
       .profile()
       .then(user =>
         this.user = user);
+    this.scheduleService.findScheduleById(this.scheduleId)
+      .then(schedule => this.schedule = schedule);
   }
 
   createDay(scheduleId) {
-    this.scheduleService.createDay(scheduleId)
+    this.dayService.createDay(scheduleId)
       .then(() => this.loadDays());
+  }
+
+  saveSchedule() {
+    this.scheduleService.saveSchedule(this.schedule);
   }
 
 }

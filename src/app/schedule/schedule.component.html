@@ -5,11 +5,12 @@
       <button routerLink="/home" class="btn btn-danger">Home</button>
       <div class="form-control">
         <h4>User Requirements</h4>
-        <textarea class="form-control"
+        <textarea [(ngModel)]="schedule.userRequirements"
+                  class="form-control"
                   placeholder="Enter Requirements">
 
         </textarea>
-        <button class="btn btn-primary">Save</button>
+        <button (click)="saveSchedule()" class="btn btn-primary">Save</button>
 
       </div>
       <div class="form-control">
@@ -18,11 +19,11 @@
       <div class="form-control">
       <h4>Nutrition Requirements</h4>
       <ul>
-        <li>Calories: <input type="text" class="form-control"></li>
-        <li>Proteins: <input type="text" class="form-control"></li>
-        <li>Fats: <input type="text" class="form-control"></li>
-        <li>Carbohydrates: <input type="text" class="form-control"></li>
-        <button class="btn btn-primary">Save</button>
+        <li>Calories: <input [(ngModel)]="schedule.calories" type="text" class="form-control"></li>
+        <li>Proteins: <input [(ngModel)]="schedule.proteins" type="text" class="form-control"></li>
+        <li>Fats: <input [(ngModel)]="schedule.fats" type="text" class="form-control"></li>
+        <li>Carbohydrates: <input [(ngModel)]="schedule.carbohydrates" type="text" class="form-control"></li>
+        <button (click)="saveSchedule()" class="btn btn-primary">Save</button>
       </ul>
       </div>
     </div>
