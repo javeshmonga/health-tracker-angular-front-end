@@ -35,4 +35,5 @@ export class PocComponent implements OnInit {
     console.log(food.food_name);
     this.food = food;
   }
+
 }

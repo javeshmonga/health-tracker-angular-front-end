@@ -6,6 +6,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {ScheduleListComponent} from './schedule-list/schedule-list.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import {PocComponent} from './poc/poc.component';
+import {WidgetListComponent} from './widget-list/widget-list.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'schedules', component: ScheduleListComponent},
   { path: 'schedule/:scheduleId', component: ScheduleComponent},
   { path: 'schedule/:scheduleId/poc', component: PocComponent},
+  { path: 'schedule/:scheduleId/day/:dayId/widget', component: ScheduleComponent},
   { path: '**', component: HomeComponent} // last
 ];
 export const routing = RouterModule.forRoot(appRoutes);

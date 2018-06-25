@@ -1,0 +1,11 @@
+
+<div *ngFor="let widget of widgets">
+  <textarea [(ngModel)] = "widget.text"
+            class="form-control">
+
+</textarea>
+</div>
+<button (click)="addWidget(dayId)"
+        class="btn btn-link">Add new Description</button>
+<button (click)="saveWidgets()"
+        class="btn btn-primary">Save</button>

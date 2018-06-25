@@ -16,6 +16,8 @@ import {ScheduleServiceClient} from './services/schedule.service';
 import {DayServiceClient} from './services/day.service';
 import {routing} from './app.routing';
 import {UserServiceClient} from './services/user.service';
+import { WidgetListComponent } from './widget-list/widget-list.component';
+import {WidgetServiceClient} from './services/widget.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {UserServiceClient} from './services/user.service';
     ScheduleListComponent,
     ScheduleComponent,
     DaysListComponent,
-    DayComponent
+    DayComponent,
+    WidgetListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import {UserServiceClient} from './services/user.service';
   providers: [
     ScheduleServiceClient,
     DayServiceClient,
-    UserServiceClient
+    UserServiceClient,
+    WidgetServiceClient
   ],
   bootstrap: [AppComponent]
 })
