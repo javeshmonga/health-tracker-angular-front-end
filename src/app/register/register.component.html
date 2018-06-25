@@ -1,37 +1,70 @@
-<div class="container-fluid">
-  <h1>Register</h1>
+<header class="modal-header header">
 
-  <input [(ngModel)]="user.username"
-         placeholder="username"
-         class="form-control"/>
-  <input [(ngModel)]="user.firstName"
-         placeholder="first name"
-         class="form-control"/>
-  <input [(ngModel)]="user.lastName"
-         placeholder="lastName"
-         class="form-control"/>
-  <select [(ngModel)]="user.userType"
-          class="form-control">
-    <option class="form-control">Trainer</option>
-    <option class="form-control">Member</option>
-  </select>
-  <input [(ngModel)]="user.password"
-         placeholder="password"
-         class="form-control"
-         type="password"/>
-  <input [(ngModel)]="password2"
-         placeholder="verify password"
-         class="form-control"
-         type="password"/>
-  <input [(ngModel)]="user.email"
-         placeholder="email"
-         class="form-control"/>
+  <nav class="navbar-dark na">
+    <a routerLink="home" class="btn btn-link float-right nav-item">Home</a>
+    <a routerLink="/login" class="btn btn-link nav-item">Login</a>
+    <a href="#" class="btn btn-link nav-item">About Us</a>
+    <a href="#" class="btn btn-link nav-item">Contact Us</a>
+  </nav>
+
+
+</header>
+<br>
+
+
+<div class="container col-8">
+
+  <h1 align="center">Register New User</h1>
+
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input [(ngModel)]="user.username"
+           placeholder="Enter Username"
+           class="form-control" id="username"/>
+  </div>
+  <div class="form-group">
+    <label for="firstname">First Name:</label>
+    <input [(ngModel)]="user.firstName"
+           placeholder="Enter First Name"
+           class="form-control" id="firstname"/>
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last Name:</label>
+    <input [(ngModel)]="user.lastName"
+           placeholder="Enter Last Name"
+           class="form-control" id="lastname"/>
+  </div>
+  <div class="form-group">
+    <label for="usertype">User Type:</label>
+    <select [(ngModel)]="user.userType"
+            class="form-control" id="usertype">
+      <option class="form-control">Trainer</option>
+      <option class="form-control">Member</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input [(ngModel)]="user.password"
+           placeholder="Enter Password"
+           class="form-control"
+           type="password" id="password"/>
+  </div>
+  <div class="form-group">
+    <label for="password2">Verify Password:</label>
+    <input [(ngModel)]="password2"
+           placeholder="Re-enter Password"
+           class="form-control"
+           type="password" id="password2"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email ID:</label>
+    <input [(ngModel)]="user.email"
+           placeholder="Enter Email ID"
+           class="form-control" id="email"/>
+  </div>
   <button (click)="register(user, password2)"
-          class="btn btn-primary btn-block">
+          class="btn btn-primary">
     Register
   </button>
-
-  <a class="btn btn-primary" routerLink="/login">Login</a>
-  <a class="btn btn-success" routerLink="/home">Home</a>
 
 </div>
