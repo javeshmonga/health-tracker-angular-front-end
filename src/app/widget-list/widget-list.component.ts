@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetServiceClient} from '../services/widget.service';
 import {ActivatedRoute} from '@angular/router';
+import {UserServiceClient} from '../services/user.service';
 
 @Component({
   selector: 'app-widget-list',
@@ -9,7 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class WidgetListComponent implements OnInit {
 
-  constructor(private service: WidgetServiceClient,
+  constructor(private userService: UserServiceClient,
+              private service: WidgetServiceClient,
               private route: ActivatedRoute) {
   this.route.params.subscribe(
     params => this.setParams(params));
@@ -18,8 +20,23 @@ export class WidgetListComponent implements OnInit {
   scheduleId;
   dayId;
   widgets = [];
+  user = {
+    username: '',
+    password: '',
+    userType: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    schedule: {
+      id: ''
+    }
+  }
 
   ngOnInit() {
+    this.userService
+      .profile()
+      .then(user =>
+        this.user = user);
   }
 
   setParams(params) {

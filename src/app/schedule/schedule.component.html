@@ -5,19 +5,22 @@
       <button routerLink="/home" class="btn btn-danger">Home</button>
       <div class="form-control">
         <h4>User Requirements</h4>
-        <textarea [(ngModel)]="schedule.userRequirements"
+        <div *ngIf="user.userType == 'Member' || user.userType == 'Admin'">
+          <textarea [(ngModel)]="schedule.userRequirements"
                   class="form-control"
                   placeholder="Enter Requirements">
 
-        </textarea>
-        <button (click)="saveSchedule()" class="btn btn-primary">Save</button>
+          </textarea>
+          <button (click)="saveSchedule()" class="btn btn-primary">Save</button>
+        </div>
+        <div *ngIf="user.userType == 'Trainer'">
+          {{schedule.userRequirements}}
+        </div>
+      </div>
 
-      </div>
-      <div class="form-control">
-        <button routerLink="/schedule/{{scheduleId}}/poc" class="btn btn-success">Health Tracker App</button>
-      </div>
       <div class="form-control">
       <h4>Nutrition Requirements</h4>
+        <div *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'">
       <ul>
         <li>Calories: <input [(ngModel)]="schedule.calories" type="text" class="form-control"></li>
         <li>Proteins: <input [(ngModel)]="schedule.proteins" type="text" class="form-control"></li>
@@ -25,6 +28,20 @@
         <li>Carbohydrates: <input [(ngModel)]="schedule.carbohydrates" type="text" class="form-control"></li>
         <button (click)="saveSchedule()" class="btn btn-primary">Save</button>
       </ul>
+        </div>
+        <div *ngIf="user.userType == 'Member'">
+          <ul>
+            <li>Calories: {{schedule.calories}}</li>
+            <li>Proteins: {{schedule.proteins}}</li>
+            <li>Fats: {{schedule.fats}}</li>
+            <li>Carbohydrates: {{schedule.carbohydrates}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="user.userType == 'Member' || user.userType == 'Admin'"
+           class="form-control">
+        <button routerLink="/schedule/{{scheduleId}}/poc" class="btn btn-success">Health Tracker App</button>
       </div>
     </div>
     <div class="col-8">
@@ -36,7 +53,7 @@
             Day {{i+1}}
           </a>
         </li>
-        <li><button (click)="createDay(scheduleId)" class="btn">+</button></li>
+        <li *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'"><button (click)="createDay(scheduleId)" class="btn">+</button></li>
       </ul>
       <app-widget-list></app-widget-list>
 

@@ -18,6 +18,7 @@ import {routing} from './app.routing';
 import {UserServiceClient} from './services/user.service';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {WidgetServiceClient} from './services/widget.service';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {WidgetServiceClient} from './services/widget.service';
     ScheduleComponent,
     DaysListComponent,
     DayComponent,
-    WidgetListComponent
+    WidgetListComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

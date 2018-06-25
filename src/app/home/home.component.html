@@ -1,32 +1,42 @@
 
 <div class="home">
-  <header class="modal-header">
+  <header class="modal-header header">
 
     <nav class="navbar-dark na">
-      <a class="btn btn-link float-right nav-item">Home</a>
-      <a *ngIf="user.username == ''" routerLink="/login" class="btn nav-item">Login</a>
-      <a *ngIf="user.username == ''" routerLink="/register" class="btn nav-item">Register</a>
-      <a *ngIf="user.username != ''" routerLink="/profile" class="btn nav-item">Profile</a>
-      <a *ngIf="user.userType == 'Trainer'" routerLink="/schedules" class="btn nav-item">Schedules</a>
-      <a class="btn btn-link nav-item">About Us</a>
-      <a class="btn btn-link nav-item">Contact Us</a>
+      <a routerLink="home" class="btn btn-link float-right nav-item">Home</a>
+      <a routerLink="/login" *ngIf="user.username == ''" class="btn btn-link nav-item">Login</a>
+      <a *ngIf="user.username == ''" routerLink="/register" class="btn btn-link nav-item">Register</a>
+      <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
+      <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
+      <a *ngIf="user.userType == 'Member'" routerLink="/schedule/{{user.schedule.id}}" class="btn btn-link nav-item">My Schedule</a>
+      <a href="#" class="btn btn-link nav-item">About Us</a>
+      <a href="#" class="btn btn-link nav-item">Contact Us</a>
+      <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
     </nav>
   </header>
   <div class="row">
-    <div class="col-3">
-      <p class="txt font-italic">"Good nutrition is the key to good mental and physical health. Eating a balanced diet is an important part of good health for everyone. The kind and amount of food you eat affects the way you feel and how your body works."</p>
-    </div>
-    <div>
-      <img src="https://www.w3schools.com/w3css/img_lights.jpg" class="img-fluid" alt="Responsive image">
+    <img src="http://www.baltana.com/files/wallpapers-5/Health-Quotes-HD-Wallpapers-16018.jpg" class="img-fluid" alt="Responsive image">
+    <!--<div class="col-4">-->
+      <!--<p class="txt font-italic">"Good nutrition is the key to good mental and physical health. Eating a balanced diet is an important part of good health for everyone. The kind and amount of food you eat affects the way you feel and how your body works."</p>-->
+    <!--</div>-->
+    <!--<div class="col-4">-->
+    <!--</div>-->
+    <!--<div class="col-4">-->
+      <!--<p class="txt font-italic">What are nutrients?-->
+        <!--Nutrients are ingredients in food that help you:-->
 
-    </div>
-    <div class="col-3">
+        <!--Grow-->
+        <!--Repair body tissue-->
+        <!--Build new muscle tissue.-->
+        <!--No single food will provide you with the right amount of nutrients. By combining foods from all the different food groups, you can meet your body's daily needs.</p>-->
+    <!--</div>-->
+    <!--<div class="col-3">-->
 
-    </div>
+    <!--</div>-->
 
   </div>
-  <footer class="modal-footer">
-    Content on nutrition and well being taken from https://www.kidney.org/atoz/content/nutritionwyska
+  <footer class="modal-footer footer">
+    <i>Content on nutrition and well being taken from https://www.kidney.org/atoz/content/nutritionwyska and image taken from http://www.baltana.com/files/wallpapers-5/Health-Quotes-HD-Wallpapers-16018.jpg</i>
   </footer>
 </div>
 

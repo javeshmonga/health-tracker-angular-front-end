@@ -1,10 +1,26 @@
 .home {
-  background-color: lightgrey;
+  background-color: lightsteelblue;
   border-color: white;
 }
 
 .txt {
   font-family: Calibri;
   font: caption;
+  color: white;
+}
+
+.header {
+  background-color: black;
+}
+
+.footer {
+  background-color: black;
+}
+
+a{
+  color: white;
+}
+
+i{
   color: white;
 }

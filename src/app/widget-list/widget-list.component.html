@@ -1,11 +1,24 @@
 
 <div *ngFor="let widget of widgets">
-  <textarea [(ngModel)] = "widget.text"
-            class="form-control">
+  <div *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'">
+    <textarea [(ngModel)] = "widget.text"
+              class="form-control">
 
-</textarea>
+    </textarea>
+  </div>
+  <div *ngIf="user.userType == 'Member'">
+    <ul>
+      <li>
+        {{widget.text}}
+      </li>
+    </ul>
+  </div>
+
 </div>
-<button (click)="addWidget(dayId)"
-        class="btn btn-link">Add new Description</button>
-<button (click)="saveWidgets()"
-        class="btn btn-primary">Save</button>
+<div *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'">
+  <button (click)="addWidget(dayId)"
+          class="btn btn-link">Add new Description</button>
+  <button (click)="saveWidgets()"
+          class="btn btn-primary">Save</button>
+
+</div>

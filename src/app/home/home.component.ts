@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserServiceClient} from '../services/user.service';
+import {ScheduleServiceClient} from '../services/schedule.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,11 @@ import {UserServiceClient} from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UserServiceClient,
+  constructor(private scheduleService: ScheduleServiceClient,
+              private service: UserServiceClient,
               private router: Router) {}
 
+  schedule;
   user = {
     username: '',
     password: '',
@@ -19,7 +22,9 @@ export class HomeComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    schedule: {}
+    schedule: {
+      id: ''
+    }
   };
 
   ngOnInit() {
@@ -28,5 +33,4 @@ export class HomeComponent implements OnInit {
       .then(user =>
         this.user = user);
   }
-
 }

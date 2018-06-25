@@ -28,6 +28,7 @@ export class ScheduleComponent implements OnInit {
   user = {
     username: '',
     password: '',
+    userType: '',
     firstName: '',
     lastName: '',
     email: '',
