@@ -14,11 +14,14 @@ export class ProfileComponent implements OnInit {
   user = {
     username: '',
     password: '',
+    userType: '',
     firstName: '',
     lastName: '',
     email: '',
-    schedule: {}
-  };
+    schedule: {
+      id: ''
+    }
+  }
 
   ngOnInit() {
     this.service

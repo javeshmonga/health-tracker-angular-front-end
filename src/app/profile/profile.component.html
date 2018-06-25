@@ -1,23 +1,59 @@
-<div class="container-fluid">
-  <h1>Profile</h1>
+<div>
 
-  <label>Username: </label>
-{{user.username}}
-  <input [(ngModel)]="user.firstName"
-         placeholder="first name"
-         class="form-control"/>
-  <input [(ngModel)]="user.lastName"
-         placeholder="lastName"
-         class="form-control"/>
-  <input [(ngModel)]="user.password"
-         placeholder="password"
-         class="form-control"
-         type="password"/>
-  <input [(ngModel)]="user.email"
-         placeholder="email"
-         class="form-control"/>
-  <button (click)="update()" class="btn btn-primary btn-block">
+  <header class="modal-header header">
+
+    <nav class="navbar-dark na">
+      <a routerLink="home" class="btn btn-link float-right nav-item">Home</a>
+      <a routerLink="/login" *ngIf="user.username == ''" class="btn btn-link nav-item">Login</a>
+      <a *ngIf="user.username == ''" routerLink="/register" class="btn btn-link nav-item">Register</a>
+      <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
+      <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
+      <a *ngIf="user.userType == 'Member'" routerLink="/schedule/{{user.schedule.id}}" class="btn btn-link nav-item">My Schedule</a>
+      <a href="#" class="btn btn-link nav-item">About Us</a>
+      <a href="#" class="btn btn-link nav-item">Contact Us</a>
+      <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
+    </nav>
+
+    <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
+
+    <nav class="float-right">
+      <a *ngIf="user.username != ''" class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
+    </nav>
+  </header>
+<div class="container">
+  <h1>Profile</h1>
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <label>Username:</label><br>
+      <label>First Name:</label><br>
+      <label>Last Name:</label><br>
+      <label>Password:</label><br>
+      <label>Email ID:</label><br>
+    </div>
+    <div class="col-8">
+      {{user.username}}
+      <input [(ngModel)]="user.firstName"
+             id="firstName"
+             placeholder="first name"
+             class="form-control"/>
+      <input [(ngModel)]="user.lastName"
+             placeholder="lastName"
+             class="form-control"/>
+      <input [(ngModel)]="user.password"
+             placeholder="password"
+             class="form-control"
+             type="password"/>
+      <input [(ngModel)]="user.email"
+             placeholder="email"
+             class="form-control"/>
+
+    </div>
+  </div>
+  </div>
+
+  <button (click)="update()" class="btn btn-primary">
     Update
   </button>
-  <button (click)="logout()" class="btn btn-danger">Logout</button>
+</div>
 </div>
