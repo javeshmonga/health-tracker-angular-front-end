@@ -14,10 +14,10 @@
       <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
     </nav>
 
-    <label class="align-content-center">Hi {{user.firstName}}</label>
+    <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
 
     <nav class="float-right">
-      <a class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
+      <a *ngIf="user.username != ''" class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
     </nav>
   </header>
   <body>
