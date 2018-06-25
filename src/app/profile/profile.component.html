@@ -3,14 +3,11 @@
   <header class="modal-header header">
 
     <nav class="navbar-dark na">
-      <a routerLink="home" class="btn btn-link float-right nav-item">Home</a>
+      <a routerLink="home" class="btn btn-link nav-item">Home</a>
       <a routerLink="/login" *ngIf="user.username == ''" class="btn btn-link nav-item">Login</a>
       <a *ngIf="user.username == ''" routerLink="/register" class="btn btn-link nav-item">Register</a>
-      <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
       <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
       <a *ngIf="user.userType == 'Member'" routerLink="/schedule/{{user.schedule.id}}" class="btn btn-link nav-item">My Schedule</a>
-      <a href="#" class="btn btn-link nav-item">About Us</a>
-      <a href="#" class="btn btn-link nav-item">Contact Us</a>
       <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
     </nav>
 

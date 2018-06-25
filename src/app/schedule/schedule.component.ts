@@ -64,4 +64,11 @@ export class ScheduleComponent implements OnInit {
     this.scheduleService.saveSchedule(this.schedule);
   }
 
+  logout() {
+    this.service
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
+  }
 }

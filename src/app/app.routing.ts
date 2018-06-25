@@ -8,6 +8,8 @@ import {ScheduleComponent} from './schedule/schedule.component';
 import {PocComponent} from './poc/poc.component';
 import {WidgetListComponent} from './widget-list/widget-list.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'schedules', component: ScheduleListComponent},
+  { path: 'about_us', component: AboutUsComponent},
+  { path: 'contact_us', component: ContactUsComponent},
   { path: 'admin', component: AdminPageComponent},
   { path: 'schedule/:scheduleId', component: ScheduleComponent},
   { path: 'schedule/:scheduleId/poc', component: PocComponent},

@@ -19,6 +19,8 @@ import {UserServiceClient} from './services/user.service';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {WidgetServiceClient} from './services/widget.service';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     DaysListComponent,
     DayComponent,
     WidgetListComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

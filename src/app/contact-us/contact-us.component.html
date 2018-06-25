@@ -8,6 +8,7 @@
     <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
     <a *ngIf="user.userType == 'Member'" routerLink="/schedule/{{user.schedule.id}}" class="btn btn-link nav-item">My Schedule</a>
     <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
+    <a routerLink="/about_us" class="btn btn-link nav-item">About Us</a>
   </nav>
 
   <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
@@ -18,46 +19,5 @@
 </header>
 
 <div class="container">
-
-  <div class="row">
-    <div class="col-8">
-      <h3>Health Tracker</h3>
-    </div>
-  </div>
-
-  <div class="row container">
-    <div class="col-8">
-      <input [(ngModel)]="queryTerm"
-             class="form-control"
-             type='text'
-             placeholder="Enter Search Term">
-    </div>
-    <div class="col-4">
-      <button title="Search"
-              class="btn btn-primary"
-              (click)="selectSearch()">Search</button>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div *ngIf="toggleSearch" class="container col-6">
-        <h5>Select the appropriate item from the list below</h5>
-        <ul>
-          <li (click)="displayDetails(food)"
-              class="list-group-item webdev btn btn-link"
-              *ngFor="let food of Foods">
-            {{food.food_name}}
-          </li>
-        </ul>
-    </div>
-
-    <div *ngIf="toggleDetail" class=" container col-6">
-        <h5>Description</h5>
-        {{food.food_description}}}
-    </div>
-
-  </div>
-
+  <h3>Contact Us</h3>
 </div>

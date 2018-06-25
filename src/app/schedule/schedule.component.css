@@ -1,0 +1,27 @@
+.header {
+  background-color: black;
+}
+
+.footer {
+  background-color: black;
+}
+
+a{
+  color: white;
+}
+
+a.day{
+  color: blue;
+}
+
+i{
+  color: white;
+}
+
+label{
+  color: white;
+}
+
+body{
+  background-image: url("http://www.baltana.com/files/wallpapers-5/Health-Quotes-HD-Wallpapers-16018.jpg");
+}

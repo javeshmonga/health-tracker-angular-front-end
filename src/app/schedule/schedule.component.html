@@ -1,8 +1,23 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class=" container-fluid col-4">
+<header class="modal-header header">
 
-      <button routerLink="/home" class="btn btn-danger">Home</button>
+  <nav class="navbar-dark na">
+    <a routerLink="home" class="btn btn-link nav-item">Home</a>
+    <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
+    <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
+    <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
+  </nav>
+
+  <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
+
+  <nav class="float-right">
+    <a *ngIf="user.username != ''" class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class=" container col-4">
+
       <div class="form-control">
         <h4>User Requirements</h4>
         <div *ngIf="user.userType == 'Member' || user.userType == 'Admin'">
@@ -18,7 +33,7 @@
         </div>
       </div>
 
-      <div class="form-control">
+      <div class="form-control container">
       <h4>Nutrition Requirements</h4>
         <div *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'">
       <ul>
@@ -40,16 +55,16 @@
       </div>
 
       <div *ngIf="user.userType == 'Member' || user.userType == 'Admin'"
-           class="form-control">
+           class="form-control container">
         <button routerLink="/schedule/{{scheduleId}}/poc" class="btn btn-success">Health Tracker App</button>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-8 container">
       <h4>Schedule for {{days.length}} days</h4>
       <ul class="nav nav-tabs">
         <li *ngFor="let day of days; let i = index"
             class="nav-item">
-          <a routerLink="/schedule/{{scheduleId}}/day/{{day.id}}/widget" class="btn btn-link nav-link">
+          <a routerLink="/schedule/{{scheduleId}}/day/{{day.id}}/widget" class="btn btn-link day nav-link">
             Day {{i+1}}
           </a>
         </li>
