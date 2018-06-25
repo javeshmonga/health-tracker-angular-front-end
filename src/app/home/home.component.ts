@@ -33,4 +33,12 @@ export class HomeComponent implements OnInit {
       .then(user =>
         this.user = user);
   }
+
+  logout() {
+    this.service
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
+  }
 }

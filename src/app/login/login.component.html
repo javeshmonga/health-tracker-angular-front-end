@@ -1,19 +1,70 @@
-<div class="container-fluid">
-  <a routerLink="/home" class="btn btn-primary">Home</a>
-  <br>
-  <h1>Login</h1>
 
-  <input [(ngModel)]="username"
-         placeholder="username"
-         class="form-control"/>
-  <input [(ngModel)]="password"
-         placeholder="password"
-         type="password"
-         class="form-control"/>
-  <button (click)="login(username, password)"
-          class="btn btn-primary btn-block">
-    Login
-  </button>
-  <br>
-  <a routerLink="/register" class="btn btn-success">Register</a>
+<header class="modal-header header">
+
+  <nav class="navbar-dark na">
+    <a href="#" routerLink="/home" class="btn btn-link">Home</a>
+    <a href="#" class="btn btn-link">About Us</a>
+    <a href="#" class="btn btn-link">Contact Us</a>
+  </nav>
+
+</header>
+
+<!--reffered from https://bootsnipp.com/snippets/featured/parallax-login-form-->
+
+<div class="container-fluid justify-content-around">
+  <div class="row vertical-offset-100">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Login</h3>
+        </div>
+        <div class="panel-body">
+          <form accept-charset="UTF-8" role="form">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control"
+                       placeholder="Username"
+                       type="text"
+                       [(ngModel)]="username">
+              </div>
+              <div class="form-group">
+                <input class="form-control"
+                       placeholder="Password"
+                       type="password"
+                       [(ngModel)]="password">
+              </div>
+              <button (click)="login(username,password)" class="btn btn-lg btn-success btn-block">Login</button>
+              <br>
+              <button href="#" routerLink="/register" class="btn btn-link">Not an Registered User?</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <h3 class="h3">How do I eat a healthy diet?</h3>
+
+      <p class="font-italic">
+        <ul>
+      <li>Eat a variety of foods from each group and stay within the recommended servings listed.</li>
+      <li>Choose foods that are low in fat and sugar.</li>
+      <li>Choose and prepare foods that are low in salt.</li>
+      <li>Learn to read and understand food labels.</li>
+    </ul>
+
+      <h3>How can I make healthy choices when shopping for food?</h3>
+      <p class="font-italic">Read the Nutrition Facts Food Label, which is found on canned, frozen and packaged foods. This label:</p>
+      <ul>
+        <li>Lists the items that by law need to be listed on food products.</li>
+        <li>Shows what a serving size of a food is, and how many calories and fat grams are in a serving, as well as how many calories of the food come from fat.</li>
+        <li>Tells some important vitamins and minerals that the food provides.</li>
+      </ul>
+
+      <h3>What if I have more questions?</h3>
+      <ul>
+        <li>Login or SignUp here today :)</li>
+      </ul>
+    </div>
+  </div>
 </div>
+

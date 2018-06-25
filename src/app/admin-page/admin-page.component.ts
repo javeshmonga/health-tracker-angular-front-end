@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -8,7 +9,8 @@ import {UserServiceClient} from '../services/user.service';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor(private service: UserServiceClient) { }
+  constructor(private service: UserServiceClient,
+              private router: Router) { }
 
   users;
   user = {
@@ -26,6 +28,13 @@ export class AdminPageComponent implements OnInit {
   ngOnInit() {
     this.service.finAllUsers()
       .then(users => this.users = users);
+  }
+  logout() {
+    this.service
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
   }
 
 }

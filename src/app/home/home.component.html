@@ -13,8 +13,14 @@
       <a href="#" class="btn btn-link nav-item">Contact Us</a>
       <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
     </nav>
+
+    <label class="align-content-center">Hi {{user.firstName}}</label>
+
+    <nav class="float-right">
+      <a class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
+    </nav>
   </header>
-  <div class="row">
+  <body>
     <img src="http://www.baltana.com/files/wallpapers-5/Health-Quotes-HD-Wallpapers-16018.jpg" class="img-fluid" alt="Responsive image">
     <!--<div class="col-4">-->
       <!--<p class="txt font-italic">"Good nutrition is the key to good mental and physical health. Eating a balanced diet is an important part of good health for everyone. The kind and amount of food you eat affects the way you feel and how your body works."</p>-->
@@ -34,7 +40,7 @@
 
     <!--</div>-->
 
-  </div>
+  </body>
   <footer class="modal-footer footer">
     <i>Content on nutrition and well being taken from https://www.kidney.org/atoz/content/nutritionwyska and image taken from http://www.baltana.com/files/wallpapers-5/Health-Quotes-HD-Wallpapers-16018.jpg</i>
   </footer>
