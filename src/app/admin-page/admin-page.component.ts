@@ -37,4 +37,35 @@ export class AdminPageComponent implements OnInit {
 
   }
 
+  populate(user) {
+    this.user = user;
+  }
+
+  update() {
+    this.service.updateUser(this.user)
+      .then(response => {
+        if (response.username == null) {
+          alert('username does not exist');
+        }
+      })
+      .then(() => this.ngOnInit());
+  }
+
+  register(user) {
+    user.password = user.username;
+      this.service
+        .register(user)
+        .then(response => {
+          if (response.username == null) {
+            alert('username already exists');
+          } else {
+            this.ngOnInit();
+          }
+        });
+  }
+
+  deleteUser(id) {
+    this.service.deleteUser(id)
+      .then(() => this.ngOnInit());
+  }
 }

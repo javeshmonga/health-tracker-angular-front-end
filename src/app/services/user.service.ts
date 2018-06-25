@@ -51,4 +51,10 @@ export class UserServiceClient {
       }
     }).then(response => response.json());
   }
+
+  deleteUser(id) {
+    return fetch(this.URL + '/api/user/' + id, {
+      method: 'delete'
+    });
+  }
 }

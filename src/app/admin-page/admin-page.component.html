@@ -3,14 +3,12 @@
 
     <nav class="navbar-dark na">
       <a routerLink="home" class="btn btn-link float-right nav-item">Home</a>
-      <a routerLink="/login" *ngIf="user.username == ''" class="btn btn-link nav-item">Login</a>
-      <a *ngIf="user.username == ''" routerLink="/register" class="btn btn-link nav-item">Register</a>
-      <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
-      <a *ngIf="user.userType == 'Trainer' || user.userType == 'Admin'" routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
-      <a *ngIf="user.userType == 'Member'" routerLink="/schedule/{{user.schedule.id}}" class="btn btn-link nav-item">My Schedule</a>
+
+
+      <a routerLink="/profile" class="btn btn-link nav-item">Profile</a>
+      <a routerLink="/schedules" class="btn btn-link nav-item">Schedules</a>
       <a href="#" class="btn btn-link nav-item">About Us</a>
       <a href="#" class="btn btn-link nav-item">Contact Us</a>
-      <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
     </nav>
 
     <label class="align-content-center">Hi Admin</label>
@@ -18,7 +16,10 @@
     <nav class="float-right">
       <a class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
     </nav>
-  </header>  <ul>
+  </header>
+  <br>
+  <div class="container">
+  <ul>
     <li class="row">
       <b class="col-2">Username</b>
       <b class="col-2">First Name</b>
@@ -26,17 +27,20 @@
       <b class="col-2">User Type</b>
       <b class="col-2">Email</b>
     </li>
+  <br>
     <li class="row">
-      <input class="col-2 form-control" placeholder="Enter Username">
-      <input class="col-2 form-control" placeholder="Enter First Name">
-      <input class="col-2 form-control" placeholder="Enter Last Name">
-      <select class="col-2 form-control">
+      <input [(ngModel)]="user.username" class="col-2 form-control" placeholder="Enter Username">
+      <input [(ngModel)]="user.firstName" class="col-2 form-control" placeholder="Enter First Name">
+      <input [(ngModel)]="user.lastName" class="col-2 form-control" placeholder="Enter Last Name">
+      <select [(ngModel)]="user.userType" class="col-2 form-control">
         <option>Member</option>
         <option>Trainer</option>
       </select>
-      <input class="col-2 form-control" placeholder="Enter Email ID">
-      <button class="btn btn-success">Add User</button>
+      <input [(ngModel)]="user.email" class="col-2 form-control" placeholder="Enter Email ID">
+      <button (click)="register(user)" class="btn btn-success">+</button>
+      <button (click)="update()" class="btn btn-primary">Save Update</button>
     </li>
+  <br>
     <div *ngFor="let user of users">
       <div *ngIf="user.userType != 'Admin'">
       <li class="row form-row">
@@ -55,11 +59,17 @@
         <div class="col-2">
           {{user.email}}
         </div>
-        <div class="col-2">
-          <button class="btn btn-danger">Delete</button>
+        <div>
+          <button (click)="deleteUser(user.id)" class="btn btn-danger">X</button>
+        </div>
+        <div>
+          <button (click)="populate(user)" class="btn btn-link">Populate Data</button>
         </div>
       </li>
+        <br>
       </div>
     </div>
   </ul>
+    <h6>Note: Default password for a user is the same as the username.</h6>
+</div>
 </div>
