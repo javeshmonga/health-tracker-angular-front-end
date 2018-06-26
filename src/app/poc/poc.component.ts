@@ -61,7 +61,7 @@ export class PocComponent implements OnInit {
   }
 
   service() {
-    return fetch('http://localhost:3000/api/poc/' + this.queryTerm)
+    return fetch('https://powerful-basin-21524.herokuapp.com/api/poc/' + this.queryTerm)
       .then(response => response.json());
   }
 
