@@ -42,7 +42,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   update() {
-    this.service.updateUser(this.user)
+    this.service.updateUserByAdmin(this.user)
       .then(response => {
         if (response.username == null) {
           alert('username does not exist');
@@ -54,7 +54,7 @@ export class AdminPageComponent implements OnInit {
   register(user) {
     user.password = user.username;
       this.service
-        .register(user)
+        .registerUserByAdmin(user)
         .then(response => {
           if (response.username == null) {
             alert('username already exists');

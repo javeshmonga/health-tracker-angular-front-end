@@ -52,6 +52,26 @@ export class UserServiceClient {
     }).then(response => response.json());
   }
 
+  registerUserByAdmin(user) {
+    return fetch(this.URL + '/api/register/admin', {
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user),
+      method: 'post'
+    }).then(respose => respose.json());
+  }
+
+  updateUserByAdmin(user) {
+    return fetch(this.URL + '/api/user/update/admin', {
+      body: JSON.stringify(user),
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   deleteUser(id) {
     return fetch(this.URL + '/api/user/' + id, {
       method: 'delete'

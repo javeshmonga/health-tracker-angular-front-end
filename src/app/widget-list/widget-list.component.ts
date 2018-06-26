@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetServiceClient} from '../services/widget.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserServiceClient} from '../services/user.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class WidgetListComponent implements OnInit {
 
   constructor(private userService: UserServiceClient,
               private service: WidgetServiceClient,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   this.route.params.subscribe(
     params => this.setParams(params));
 }
@@ -58,5 +59,10 @@ export class WidgetListComponent implements OnInit {
   saveWidgets() {
     this.service.saveWidgets(this.widgets, this.dayId)
       .then(() => this.loadWidgets());
+  }
+
+  deleteWidget(id) {
+    this.service.deleteWidget(id)
+      .then(() => this.router.navigate['schedule/' + this.scheduleId + '/day/' + this.dayId + '/widget']);
   }
 }

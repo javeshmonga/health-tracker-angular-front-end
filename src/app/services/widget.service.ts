@@ -27,4 +27,10 @@ export class WidgetServiceClient {
       }
     }).then(response => response.json());
   }
+
+  deleteWidget(id) {
+    return fetch(this.URL + '/api/widget/' + id, {
+      method: 'delete'
+    }).then(response => response.json());
+  }
 }

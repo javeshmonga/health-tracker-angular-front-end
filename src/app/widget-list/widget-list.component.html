@@ -5,6 +5,12 @@
               class="form-control">
 
     </textarea>
+    <button routerLink="/schedule/{{scheduleId}}"
+            style="color: red"
+            class="btn btn-link"
+            (click)="deleteWidget(widget.id)">
+      X
+    </button>
   </div>
   <div *ngIf="user.userType == 'Member'">
     <ul>

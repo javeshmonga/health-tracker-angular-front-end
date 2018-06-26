@@ -4,7 +4,7 @@
   <nav class="navbar-dark na">
     <a routerLink="home" class="btn btn-link nav-item">Home</a>
     <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
-    <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
+    <a *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
   </nav>
 
   <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
@@ -18,15 +18,14 @@
   <h3 align="left"> Member Schedule List</h3>
   <br>
 
-  <div class="card-deck">
+  <div class="card-deck card-group">
     <div *ngFor="let schedule of schedules">
       <div *ngIf="schedule.title != null">
         <div class="card">
-          <img>
-        <div class="card-body">
-          <h5 class="card-title">{{schedule.title}}</h5>
-          <a routerLink='/schedule/{{schedule.id}}' class="btn btn-primary">Edit Schedule</a>
-        </div>
+          <div class="card-body">
+            <h5 class="card-title">{{schedule.title}}</h5>
+            <a routerLink='/schedule/{{schedule.id}}' class="btn btn-primary">Edit Schedule</a>
+          </div>
         </div>
       </div>
     </div>

@@ -57,7 +57,7 @@ export class ScheduleComponent implements OnInit {
 
   createDay(scheduleId) {
     this.dayService.createDay(scheduleId)
-      .then(() => this.loadDays());
+      .then(response => this.router.navigate(['schedule/' + this.scheduleId + '/day/' + response.id + '/widget']));
   }
 
   saveSchedule() {
@@ -70,5 +70,10 @@ export class ScheduleComponent implements OnInit {
       .then(() =>
         this.router.navigate(['login']));
 
+  }
+
+  deleteDay(dayId) {
+    this.dayService.deleteDay(dayId)
+      .then(() => this.router.navigate(['schedule/' + this.scheduleId]));
   }
 }
