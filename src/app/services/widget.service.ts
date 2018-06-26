@@ -1,6 +1,6 @@
 export class WidgetServiceClient {
 
-  URL = 'http://localhost:8080';
+  URL = 'https://quiet-fjord-77462.herokuapp.com';
 
   findAllWidgetsForDay(dayId) {
     return fetch(this.URL + '/api/day/' + dayId + '/widget')

@@ -1,6 +1,6 @@
 export class UserServiceClient {
 
-  URL = 'http://localhost:8080';
+  URL = 'https://quiet-fjord-77462.herokuapp.com';
 
   finAllUsers() {
     return fetch(this.URL + '/api/user')

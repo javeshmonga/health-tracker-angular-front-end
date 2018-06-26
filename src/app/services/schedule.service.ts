@@ -1,6 +1,6 @@
 export class ScheduleServiceClient {
 
-  SCHEDULE_URL = 'http://localhost:8080/api/schedule';
+  SCHEDULE_URL = 'https://quiet-fjord-77462.herokuapp.com/api/schedule';
 
   findAllSchedules() {
     return fetch(this.SCHEDULE_URL)

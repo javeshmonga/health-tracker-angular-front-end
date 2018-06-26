@@ -1,6 +1,6 @@
 export class DayServiceClient {
 
-  SCHEDULE_URL = 'http://localhost:8080';
+  SCHEDULE_URL = 'https://quiet-fjord-77462.herokuapp.com';
 
   findAllDaysForSchedule(scheduleId) {
     return fetch(this.SCHEDULE_URL + '/api/schedule/' + scheduleId + '/day')
