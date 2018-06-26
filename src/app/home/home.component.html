@@ -19,6 +19,7 @@
 
     <nav class="float-right">
       <a *ngIf="user.username == ''" routerLink="/login" class="btn btn-success nav-item">Nutrition Teller App</a>
+      <a *ngIf="user.username != ''" routerLink="/schedule/{{user.schedule.id}}/poc" class="btn btn-success nav-item">Nutrition Teller App</a>
       <a *ngIf="user.username != ''" class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
     </nav>
   </header>
