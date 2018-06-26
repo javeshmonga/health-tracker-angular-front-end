@@ -3,7 +3,7 @@
   <header class="modal-header header">
 
     <nav class="navbar-dark na">
-      <a routerLink="home" class="btn btn-link nav-item">Home</a>
+      <a routerLink="/home" class="btn btn-link nav-item">Home</a>
       <a routerLink="/login" *ngIf="user.username == ''" class="btn btn-link nav-item">Login</a>
       <a *ngIf="user.username == ''" routerLink="/register" class="btn btn-link nav-item">Register</a>
       <a *ngIf="user.username != ''" routerLink="/profile" class="btn btn-link nav-item">Profile</a>
@@ -12,11 +12,13 @@
       <a href="#" *ngIf="user.userType == 'Admin'" routerLink="/admin" class="btn btn-link nav-item">Users</a>
       <a routerLink="/about_us" class="btn btn-link nav-item">About Us</a>
       <a routerLink="/contact_us" class="btn btn-link nav-item">Contact Us</a>
+      <a *ngIf="user.username == ''" routerLink="/login" class="btn btn-link nav-item">Request a Schedule</a>
     </nav>
 
     <label *ngIf="user.username != ''" class="align-content-center">Hi {{user.firstName}}</label>
 
     <nav class="float-right">
+      <a *ngIf="user.username == ''" routerLink="/login" class="btn btn-success nav-item">Nutrition Teller App</a>
       <a *ngIf="user.username != ''" class="nav-item btn btn-link" (click)="logout()" routerLink="/login">Logout</a>
     </nav>
   </header>
